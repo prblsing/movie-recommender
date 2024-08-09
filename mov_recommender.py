@@ -37,7 +37,7 @@ def comprehensive_search(query, sbert_weight=0.7, k=5):
     # Compute cosine similarity between the query and all movie embeddings
     similarities = cosine_similarity(query_embedding, sentence_embeddings)[0]
 
-    # Get top k most similar movies
+    # Get top k most similar movies, usually 5
     top_indices = similarities.argsort()[-k:][::-1]
     top_movies = movie_metadata.iloc[top_indices]
 
