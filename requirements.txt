@@ -2,5 +2,5 @@ pandas
 numpy
 scikit-learn
 streamlit~=1.37.1
-faiss_cpu
+faiss-cpu
 sentence-transformers
