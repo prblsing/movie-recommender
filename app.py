@@ -15,13 +15,16 @@ if st.button('Get Recommendations'):
     # Add the release years to the recommendations DataFrame
     recommendations['Year'] = release_years
 
+    # Drop the redundant 'Year' column if it exists
+    if 'Year' in recommendations.columns:
+        recommendations = recommendations.drop(columns=['Year'])
+
     # Check the number of columns before renaming
     if recommendations.shape[1] == 6:
         # Rename the columns to be more user-friendly
         recommendations.columns = ['Title', 'Genre', 'Year', 'Overview', 'Director', 'Lead Actor']
     else:
-        # If the number of columns doesn't match, display the columns as they are
         st.warning("Unexpected number of columns in the recommendations DataFrame. Displaying as is.")
-    
+
     # Display the results in a table format with the index starting from 1
     st.table(recommendations.reset_index(drop=True))
