@@ -1,8 +1,8 @@
 import streamlit as st
 from mov_recommender import comprehensive_search
 
-# Set the title of the Streamlit app
-st.title('Movie Recommendation System')
+# let's call the app movie search assistance 
+st.title('Watch What - Movie Recommendation System')
 
 # put your search query here
 query = st.text_input('Search for a movie', value="Enter your filter query here")
