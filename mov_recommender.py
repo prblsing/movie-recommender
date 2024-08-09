@@ -17,9 +17,6 @@ with open(tfidf_vectorizer_file, 'rb') as f:
 with open(metadata_file, 'rb') as f:
     movie_metadata = pickle.load(f)
 
-# Debugging: Print the columns in movie_metadata
-print("Columns in movie_metadata DataFrame:", movie_metadata.columns)
-
 # Simplified search without FAISS
 def comprehensive_search(query, sbert_weight=0.7, k=5):
     """
@@ -45,8 +42,8 @@ def comprehensive_search(query, sbert_weight=0.7, k=5):
     top_indices = similarities.argsort()[-k:][::-1]
     top_movies = movie_metadata.iloc[top_indices]
 
-    # Debugging: Print the columns in top_movies
+    # Print the columns in top_movies to debug the issue
     print("Columns in top_movies DataFrame:", top_movies.columns)
 
-    # Attempt to access columns based on actual names in the DataFrame
+    # Return the relevant columns including IMDb rating
     return top_movies[['Series_Title', 'Genre', 'Released_Year', 'Overview', 'Director', 'Star1', 'IMDB_Rating']], top_movies['Released_Year']
