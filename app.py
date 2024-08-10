@@ -13,6 +13,6 @@ recommendation_count = st.selectbox('Number of recommendations to display:', opt
 
 if st.button('Get Recommendations'):
     # perform the search using the comprehensive search function
-    recommendations = comprehensive_search(query)
+    recommendations = comprehensive_search(query, k=recommendation_count)
     recommendations.columns = ['Title', 'Genre', 'Year', 'Overview', 'Director', 'Lead Actor']
     st.table(recommendations.reset_index(drop=True))
