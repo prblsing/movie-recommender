@@ -42,4 +42,4 @@ def comprehensive_search(query, sbert_weight=0.7, k=5):
     top_movies = movie_metadata.iloc[top_indices]
 
     # return the relevant columns
-    return top_movies[['Series_Title', 'Genre', 'Released_Year', 'Overview', 'Director', 'Star1']], top_movies['Released_Year']
+    return top_movies[['Series_Title', 'Genre', 'Released_Year', 'Overview', 'Director', 'Star1']]
