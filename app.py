@@ -8,7 +8,7 @@ st.title('Watch What - Movie Recommendation System')
 query = st.text_input('Search for a movie', value="Enter your filter query here")
 
 if st.button('Get Recommendations'):
-    # Perform the search using the comprehensive search function
+    # perform the search using the comprehensive search function
     recommendations, release_years = comprehensive_search(query)
     recommendations['Year'] = release_years
     if 'Year' in recommendations.columns:
