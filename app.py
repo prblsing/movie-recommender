@@ -9,10 +9,7 @@ query = st.text_input('Search for a movie', value="Enter your filter query here"
 
 if st.button('Get Recommendations'):
     # perform the search using the comprehensive search function
-    recommendations, release_years = comprehensive_search(query)
-    recommendations['Year'] = release_years
-    if 'Year' in recommendations.columns:
-        recommendations = recommendations.drop(columns=['Year'])
+    recommendations = comprehensive_search(query)
     if recommendations.shape[1] == 6:
         recommendations.columns = ['Title', 'Genre', 'Year', 'Overview', 'Director', 'Lead Actor']
     else:
