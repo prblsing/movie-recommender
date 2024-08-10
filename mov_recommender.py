@@ -17,13 +17,12 @@ with open(tfidf_vectorizer_file, 'rb') as f:
 with open(metadata_file, 'rb') as f:
     movie_metadata = pickle.load(f)
 
-def comprehensive_search(query, sbert_weight=0.7, k=5):
+def comprehensive_search(query, k=5):
     """
     Performs a comprehensive search for movies based on a user query using cosine similarity.
 
     Args:
     - query (str): The user query string.
-    - sbert_weight (float): The weight given to Sentence-BERT based search.
     - k (int): The number of top results to return.
 
     Returns:
