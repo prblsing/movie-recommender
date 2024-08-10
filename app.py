@@ -10,8 +10,5 @@ query = st.text_input('Search for a movie', value="Enter your filter query here"
 if st.button('Get Recommendations'):
     # perform the search using the comprehensive search function
     recommendations = comprehensive_search(query)
-    if recommendations.shape[1] == 6:
-        recommendations.columns = ['Title', 'Genre', 'Year', 'Overview', 'Director', 'Lead Actor']
-    else:
-        st.warning("Unexpected number of columns in the recommendations DataFrame. Displaying as is.")
+    recommendations.columns = ['Title', 'Genre', 'Year', 'Overview', 'Director', 'Lead Actor']
     st.table(recommendations.reset_index(drop=True))
