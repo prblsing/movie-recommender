@@ -14,7 +14,6 @@ if st.button('Get Recommendations'):
     if 'Year' in recommendations.columns:
         recommendations = recommendations.drop(columns=['Year'])
     if recommendations.shape[1] == 6:
-        # Rename the columns to be more user-friendly
         recommendations.columns = ['Title', 'Genre', 'Year', 'Overview', 'Director', 'Lead Actor']
     else:
         st.warning("Unexpected number of columns in the recommendations DataFrame. Displaying as is.")
